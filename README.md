@@ -1,37 +1,48 @@
-# Learning from **Patrick @ FCC** about **NFT**
+# Learning from Patrick @ FCC about NFT Development
 
-# **Project:** NFT
+## **Project Overview: NFT Development**
 
-## We are going to create three different contracts:
+This project aims to explore various aspects of NFT (Non-Fungible tokens) creation and management using blockchain technology. We will delve into three distinct types of NFT contracts:
 
-1. Basic **NFT** using **ERC 721** standard.
+### 1. **Basic NFT with ERC 721 Standard**
+   - Utilizes the ERC 721 standard for creating a unique, non-interchangeable token.
 
-2. Random **IPFS** hosted **NFT**, this is going to give some actual scarcity 
-and randomness to our NFT and is going to be hosted on IPFS
+### 2. **Random IPFS Hosted NFT**
+   - Offers scarcity and randomness to NFTs.
+   - NFTs are hosted on the InterPlanetary File System (IPFS).
 
-3. Dynamic **SVG NFT** is going to be hosted on 100% on chain, and the image of it's going to change 
-based off of some parameters (that's what makes it a dynamic svg nft).
+### 3. **Dynamic SVG NFT**
+   - Entirely hosted on-chain.
+   - Features a dynamic SVG image that changes based on certain parameters.
 
+## **Installation of Packages**
 
+For this project, a variety of packages are required. Install the following packages using Yarn:
 
+- **Development tools and utilities**
+```bash
+yarn add --dev @nomicfoundation/hardhat-toolbox @nomicfoundation/hardhat-network-helpers @nomicfoundation/hardhat-chai-matchers @nomiclabs/hardhat-ethers @nomiclabs/hardhat-etherscan chai ethers hardhat-gas-reporter solidity-coverage @typechain/hardhat typechain @typechain/ethers-v5 @ethersproject/abi @ethersproject/providers hardhat-deploy dotenv prettier prettier-plugin-solidity
+```
 
-## **Install pkgs:**
-
-- `yarn add --dev @nomicfoundation/hardhat-toolbox @nomicfoundation/hardhat-network-helpers @nomicfoundation/hardhat-chai-matchers @nomiclabs/hardhat-ethers @nomiclabs/hardhat-etherscan chai ethers hardhat-gas-reporter solidity-coverage @typechain/hardhat typechain @typechain/ethers-v5 @ethersproject/abi @ethersproject/providers hardhat-deploy dotenv prettier prettier-plugin-solidity`
-
-- `yarn add --dev @openzeppelin/contracts`
-
-- `yarn add --dev @chainlink/contracts`
-
-- `yarn add --dev @pinata/sdk`
-
-- `yarn add --dev path`
-
-- `yarn add --dev base64-sol`
-
-- `yarn add --dev @chainlink/contracts@0.4.1` *The latest version isn't compatible* 
-
-- `yarn add --dev ether@^5.5.4` *The latest version isn't compatible* 
+- **OpenZeppelin contracts**
+```bash
+ yarn add --dev @openzeppelin/contracts
+```
+- **Chainlink contracts**
+```bash
+ yarn add --dev @chainlink/contracts
+```
+- **Additional tools and libraries**
+```bash
+  yarn add --dev @pinata/sdk
+  yarn add --dev path
+  yarn add --dev base64-sol
+```
+- **Specific versions due to compatibility issues**
+```bash
+ yarn add --dev @chainlink/contracts@0.4.1
+ yarn add --dev ether@^5.5.4  
+```
 
 ## **Resources:**
 
@@ -39,47 +50,28 @@ based off of some parameters (that's what makes it a dynamic svg nft).
 
     * **OpenZeppelin**
 
-        * [contracts](https://docs.openzeppelin.com/contracts/4.x/)
+        * [contracts](https://docs.openzeppelin.com/contracts/4.x/) - [ERC721](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721#ERC721PresetMinterPauserAutoId-mint-address-)
 
-        * [ERC721](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721#ERC721PresetMinterPauserAutoId-mint-address-)
+        * [tokenURI()](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721#IERC721Metadata-tokenURI-uint256-) - [mint()](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721#ERC721PresetMinterPauserAutoId-mint-address-)
 
-        * [tokenURI()](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721#IERC721Metadata-tokenURI-uint256-)
-
-        * [mint()](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721#ERC721PresetMinterPauserAutoId-mint-address-)
-
-        * [_safeMint()](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721#ERC721-_safeMint-address-uint256-)
-
-        * [_setTokenURI](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721#ERC721URIStorage-_setTokenURI-uint256-string-)
+        * [_safeMint()](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721#ERC721-_safeMint-address-uint256-) - [_setTokenURI](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721#ERC721URIStorage-_setTokenURI-uint256-string-)
 
 
     * **Chainlink**
-        * [get random number](https://docs.chain.link/vrf/v2/subscription/examples/get-a-random-number/)
+        * [get random number](https://docs.chain.link/vrf/v2/subscription/examples/get-a-random-number/) - [Chainlink VRF](https://docs.chain.link/vrf/v2/introduction/)
 
-        * [Chainlink VRF](https://docs.chain.link/vrf/v2/introduction/)
-
-        * [vrf chainlink - subscription ID ](https://vrf.chain.link/goerli)
-
-        * [Price Feed Contract Addresses](https://docs.chain.link/data-feeds/price-feeds/addresses)
-
+        * [vrf chainlink - subscription ID ](https://vrf.chain.link/goerli) - [Price Feed Contract Addresses](https://docs.chain.link/data-feeds/price-feeds/addresses)
 
     * **Solidity-Docs**
 
-        * [enum](https://docs.soliditylang.org/en/v0.8.19/types.html#enums)
-
-        * [Events](https://docs.soliditylang.org/en/v0.8.19/contracts.html#events)
+        * [enum](https://docs.soliditylang.org/en/v0.8.19/types.html#enums) - [Events](https://docs.soliditylang.org/en/v0.8.19/contracts.html#events)
 
         * [Global Variables](https://docs.soliditylang.org/en/latest/cheatsheet.html#global-variables)
 
     * **Uploading Token Images**
 
-        * [IPFS](https://docs.ipfs.tech/)
+        * [IPFS](https://docs.ipfs.tech/) - [Pinata](https://www.pinata.cloud/)
 
-        * [Pinata](https://www.pinata.cloud/)
+        * [NFT Storage](https://nft.storage/) *Recommended*  - [W3school-SVG](https://www.w3schools.com/graphics/svg_intro.asp)
 
-        * [NFT Storage](https://nft.storage/) *Recommended*
-
-- [W3school-SVG](https://www.w3schools.com/graphics/svg_intro.asp)
-
-- [Base64-encode](https://base64.guru/converter/encode/image)
-
-- [base64-GitHub](https://github.com/Brechtpd/base64)
+        * [Base64-encode](https://base64.guru/converter/encode/image) - [base64-GitHub](https://github.com/Brechtpd/base64)
